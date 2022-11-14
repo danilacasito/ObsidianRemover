@@ -30,6 +30,7 @@ public class ListenEvent implements Listener {
                 blockList.entrySet().removeIf(entry -> {
                     if (entry.getValue() <= System.currentTimeMillis()) {
                         entry.getKey().setType(Material.AIR);
+
                         return true;
                     }
                     return false;
@@ -48,6 +49,7 @@ public class ListenEvent implements Listener {
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent event) {
         Player player = event.getPlayer();
+        long time = this.plugin.getConfig().getLong("time");
         Block block = event.getBlockPlaced();
         List<String> list;
         list = (List<String>) this.plugin.getConfig().getList("worlds");
@@ -63,7 +65,7 @@ public class ListenEvent implements Listener {
         }
         if (block.getBlockData().getMaterial() == Material.OBSIDIAN) {
             if (this.utils.isPresent(player.getWorld().getName(), list)) {
-                blockList.put(event.getBlock(), System.currentTimeMillis() + 40_000L);
+                blockList.put(event.getBlock(), System.currentTimeMillis() + time);
             }
 
         }

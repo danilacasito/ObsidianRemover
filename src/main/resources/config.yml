@@ -2,7 +2,7 @@
 # If you want to enable the plugin only for the world "pvp", put only pvp, you can put more than one world if you want.
 worlds:
   - 'pvp'
-
+time: 40
 # If you want to modify the damage of the explosion caused by the ender crystal, set crystal_damage_enabled to 1
 # If, on the other hand, you want to use vanilla damage put 0
 crystal_damage_enabled: 0
