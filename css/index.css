@@ -6,3 +6,12 @@
     border-top-right-radius: 5px;
     text-align: center;
 }
+.navbar {
+    text-align: center;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+.navbar.ul {
+    list-style-type: none;
+    height: 150px;
+}
