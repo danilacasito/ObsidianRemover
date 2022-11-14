@@ -62,7 +62,6 @@ public class ListenEvent implements Listener {
         }
         if (block.getBlockData().getMaterial() == Material.OBSIDIAN) {
             if (this.utils.isPresent(player.getWorld().getName(), list)) {
-
                 blockList.put(event.getBlock(), System.currentTimeMillis() + 40_000L);
             }
 
