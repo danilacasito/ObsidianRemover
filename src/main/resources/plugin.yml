@@ -1,6 +1,0 @@
-name: ObsidianRemove
-version: '${project.version}'
-main: me.elordenador.obsidianremove.ObsidianRemove
-api-version: 1.13
-authors: [ elordenador ]
-description: Removes Obsidian after 40 seconds of being placed on your PVP World
