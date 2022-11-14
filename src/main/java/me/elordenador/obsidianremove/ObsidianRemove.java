@@ -1,0 +1,18 @@
+package me.elordenador.obsidianremove;
+
+import org.bukkit.plugin.java.JavaPlugin;
+
+public final class ObsidianRemove extends JavaPlugin {
+
+    @Override
+    public void onEnable() {
+        this.saveDefaultConfig();
+        this.getServer().getPluginManager().registerEvents(new ListenEvent(this), this);
+
+    }
+
+    @Override
+    public void onDisable() {
+        // Plugin shutdown logic
+    }
+}

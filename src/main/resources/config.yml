@@ -1,0 +1,24 @@
+# List of all worlds which affects this plugin, for example
+# If you want to enable the plugin only for the world "pvp", put only pvp, you can put more than one world if you want.
+worlds:
+  - 'pvp'
+
+# If you want to modify the damage of the explosion caused by the ender crystal, set crystal_damage_enabled to 1
+# If, on the other hand, you want to use vanilla damage put 0
+crystal_damage_enabled: 0
+
+# If you want to increase the damage of the explosion, set the following option to 0.
+# If, on the other hand, you wish to reduce the damage of the crystals, place 1.
+# This variable will only work if the crystal_damage_enabled option is set to 1.
+crystal_damage_percentage_negative: 0
+# Percentage of damage made by the ender crystal, example: 100 means vanilla damage x 2
+ender_crystal_damage_percentage: 100
+
+
+
+
+# +------------------------------------------+
+# | Message Translations                     |
+# +------------------------------------------+
+
+only_obsidian_allowed: "You can only place obsidian and end crystals in this world."
