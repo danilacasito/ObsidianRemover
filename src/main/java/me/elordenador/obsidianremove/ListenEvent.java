@@ -1,6 +1,6 @@
 package me.elordenador.obsidianremove;
 
-import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -52,11 +52,12 @@ public class ListenEvent implements Listener {
         List<String> list;
         list = (List<String>) this.plugin.getConfig().getList("worlds");
 
+        assert list != null;
         if (this.utils.isPresent(player.getWorld().getName(), list)) {
             if (block.getBlockData().getMaterial() != Material.OBSIDIAN && block.getBlockData().getMaterial() != Material.END_CRYSTAL) {
                 if (!player.hasPermission("Remover.exclude")) {
                     event.setCancelled(true);
-                    player.sendMessage(this.msg.only_obsidian_allowed);
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&',this.msg.only_obsidian_allowed));
                 }
             }
         }
@@ -72,10 +73,11 @@ public class ListenEvent implements Listener {
         Player player = event.getPlayer();
         List<String> list;
         list = (List<String>) this.plugin.getConfig().getList("worlds");
+        assert list != null;
         if (this.utils.isPresent(player.getWorld().getName(), list)) {
             if (!player.hasPermission("Remover.exclude")) {
                 event.setCancelled(true);
-                player.sendMessage("Solo puedes poner obsidiana en este mundo!");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',this.msg.only_obsidian_allowed));
             }
         }
     }

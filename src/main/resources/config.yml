@@ -21,4 +21,4 @@ ender_crystal_damage_percentage: 100
 # | Message Translations                     |
 # +------------------------------------------+
 
-only_obsidian_allowed: "You can only place obsidian and end crystals in this world."
+only_obsidian_allowed: "&cYou can only place obsidian and end crystals in this world."
