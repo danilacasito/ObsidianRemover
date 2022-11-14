@@ -8,7 +8,7 @@ public final class ObsidianRemove extends JavaPlugin {
     public void onEnable() {
         this.saveDefaultConfig();
         this.getServer().getPluginManager().registerEvents(new ListenEvent(this), this);
-
+        this.getCommand("obreload").setExecutor(new ReloadCommand(this));
     }
 
     @Override
