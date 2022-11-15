@@ -16,6 +16,6 @@
     margin: 0;
     padding: 0;
 }
-.navbar ul li {
+.inline li {
     diplay: inline;
 }
