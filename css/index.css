@@ -11,7 +11,7 @@
     border-bottom-style: solid;
     border-bottom-width: 1px;
 }
-.navbar.ul {
+.navbar ul {
     list-style-type: none;
     height: 150px;
     margin: 0;
