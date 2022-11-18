@@ -53,10 +53,12 @@ public class ListenEvent implements Listener {
         Block block = event.getBlockPlaced();
         List<String> list;
         list = (List<String>) this.plugin.getConfig().getList("worlds");
+        List<String> removed_blocks;
+        removed_blocks = (List<String>) this.plugin.getConfig().getList("disabled_blocks");
 
         assert list != null;
         if (this.utils.isPresent(player.getWorld().getName(), list)) {
-            if (block.getBlockData().getMaterial() != Material.OBSIDIAN && block.getBlockData().getMaterial() != Material.END_CRYSTAL) {
+            if (block.getBlockData().getMaterial() != Material.OBSIDIAN && block.getBlockData().getMaterial() != Material.END_CRYSTAL && block.getBlockData().getMaterial() != Material.RESPAWN_ANCHOR) {
                 if (!player.hasPermission("Remover.exclude")) {
                     event.setCancelled(true);
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&',this.msg.only_obsidian_allowed));
@@ -64,10 +66,27 @@ public class ListenEvent implements Listener {
             }
         }
         if (block.getBlockData().getMaterial() == Material.OBSIDIAN) {
-            if (this.utils.isPresent(player.getWorld().getName(), list)) {
-                blockList.put(event.getBlock(), System.currentTimeMillis() + time);
+            if (!this.utils.isPresent("obsidian", removed_blocks)) {
+                if (this.utils.isPresent(player.getWorld().getName(), list)) {
+                    blockList.put(event.getBlock(), System.currentTimeMillis() + time);
+                }
             }
 
+        } else if (block.getBlockData().getMaterial() == Material.RESPAWN_ANCHOR) {
+            if (!this.utils.isPresent("respawn_anchor", removed_blocks)) {
+                if (this.utils.isPresent(player.getWorld().getName(), list)) {
+                    blockList.put(event.getBlock(), System.currentTimeMillis() + time);
+                }
+            }
+        } else if (block.getBlockData().getMaterial() == Material.END_CRYSTAL) {
+            event.setCancelled(false);
+        } else {
+            if (!player.hasPermission("Remover.exclude")) {
+                if (this.utils.isPresent(player.getWorld().getName(), list)) {
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&',this.msg.only_obsidian_allowed));
+                    event.setCancelled(true);
+                }
+            }
         }
     }
     @EventHandler

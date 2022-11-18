@@ -6,7 +6,7 @@
 
     <groupId>me.elordenador</groupId>
     <artifactId>ObsidianRemove</artifactId>
-    <version>0.4.2</version>
+    <version>0.5</version>
     <packaging>jar</packaging>
 
     <name>ObsidianRemove</name>
